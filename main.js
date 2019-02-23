@@ -2,7 +2,7 @@ var endpoint = "http://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954
 
 function geturl(){
     var url = document.getElementById("urlinput").value;
-    var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://");
+    var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://") || url.startsWith("data:text/");
     if(!protocol_ok){
         newurl = "http://"+url;
         return newurl;
