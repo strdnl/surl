@@ -13,7 +13,17 @@
         <script src="main.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw10Rx-OCMYRlu6OJVRWEZ2KexZaMNeHQqLOe17j3SOwKQ5Fybk/exec'
+  const form = document.forms['submit-to-google-sheet']
 
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => document.write("SUBSCRIBED"))
+      .catch(error => document.write("ERROR"))
+  })
+</script>
         
     </body>
 </html>
