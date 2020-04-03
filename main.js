@@ -1,4 +1,5 @@
 var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954d1a6cb2255e0a19402bbf419";
+var storename = [];
                     
 function makeep(str){
   str += "VAUltKvulatrelesdfr1";
@@ -66,6 +67,8 @@ function shorturl(){
   makeep(window.location.hash.substr(1));
    var longurl = encrypt(longurl)
     send_request(longurl);
+  storename.push(window.location.hash.substr(1),endpoint)
+ document.getElementByID("output").value = storename;
 }
 
 var hashh = window.location.hash.substr(1);
