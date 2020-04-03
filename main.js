@@ -51,9 +51,7 @@ function send_request(url) {
     this.url = url;
     
     $.ajax({
-      xhrFields: {
-        withCredentials: true
-    },
+     
         'url': endpoint,
         'type': 'POST',
         'data': JSON.stringify(this.url),
