@@ -8,7 +8,7 @@ for (let i=0;i<storename.length;i++) {
      // appending your elements to the body :
     endstore += "," + (storename[i]);
 } 
- document.getElementById("output").value = endstore;
+ document.getElementById("output").innerHTML = endstore;
 }
                     
 function makeep(str){
