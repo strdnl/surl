@@ -68,7 +68,7 @@ function shorturl(){
    var longurl = encrypt(longurl)
     send_request(longurl);
   storename.push(window.location.hash.substr(1),endpoint)
- document.getElementByID("output").value = storename;
+ document.getElementById("output").value = storename;
 }
 
 var hashh = window.location.hash.substr(1);
