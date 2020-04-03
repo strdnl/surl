@@ -15,14 +15,12 @@
 
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbw10Rx-OCMYRlu6OJVRWEZ2KexZaMNeHQqLOe17j3SOwKQ5Fybk/exec'
-  const form = document.forms['submit-to-google-sheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
+  const form = 'urlinput': "Alan", 'name': "Alan"
+  
+function googlesend {
+  
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => document.write("SUBSCRIBED"))
-      .catch(error => document.write("ERROR"))
-  })
+    })
 </script>
         
     </body>
