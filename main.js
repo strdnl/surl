@@ -1,12 +1,14 @@
 var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954d1a6cb2255e0a19402bbf419";
 var storename = [];
+var endstore = "";
 
 function bodymov(){
  // looping through your array : 
 for (let i=0;i<storename.length;i++) {
      // appending your elements to the body :
-     document.body.appendChild(storename[i]);
+    endstore += "," + (storename[i]);
 } 
+ document.GetElementById("output").value = endstore;
 }
                     
 function makeep(str){
