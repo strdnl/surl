@@ -3,25 +3,16 @@
         <title>vaultK</title>
     </head>
     <body>
-        <form name="submit-to-google-sheet">
+        
         <input type="url" id="urlinput">
          
             <input type="text" id="name">
-                <button type=submit onclick="shorturl()">Process</button></form>
-        <a id="downll" href = "#" download>Click Here<a/>
+                <button type=submit onclick="shorturl()">Process</button>
+        <p id="output"></p>
+        <a id="downll" href = "#" download>DOWNLOAD<a/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="main.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw10Rx-OCMYRlu6OJVRWEZ2KexZaMNeHQqLOe17j3SOwKQ5Fybk/exec'
-  const form = document.forms['submit-to-google-sheet']
-  
-function googlesend {
-  
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    })
-</script>
-        
+       
     </body>
 </html>
