@@ -1,11 +1,28 @@
-var endpoint = "http://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954d1a6cb2255e0a19402bbf419";
+var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954d1a6cb2255e0a19402bbf419";
+                    
+function makeep(str){
+  str += "VAUltKvulatrelesdfr1";
+var hex = '';s=str.length-1;
+    for(var i=0;hex.length<63;i++) {t=i%s;
+        hex += ''+str.charCodeAt(t).toString(16);
+    }
+ endpoint = "https://www.jsonstore.io/" + hex;
+  
+}
+
+
+function encrypt(url){
+var codex = CryptoJS.AES.encrypt(url, window.location.hash.substr(1)).toString();
+    return codex;
+}
 
 function geturl(){
     var url = document.getElementById("urlinput").value;
-    var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://") || url.startsWith("data:text/");
+    var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://") || url.startsWith("data:");
     if(!protocol_ok){
-        newurl = "http://"+url;
-        return newurl;
+        var newurl = "https://"+url;
+       return newurl;
+        
         }else{
             return url;
         }
@@ -20,7 +37,11 @@ function getrandom() {
     return text;
 }
 
+
+
 function genhash(){
+  window.location.hash = document.getElementById("name").value;
+  
     if (window.location.hash == ""){
         window.location.hash = getrandom();
     }
@@ -28,8 +49,9 @@ function genhash(){
 
 function send_request(url) {
     this.url = url;
+    
     $.ajax({
-        'url': endpoint + "/" + window.location.hash.substr(1),
+        'url': endpoint,
         'type': 'POST',
         'data': JSON.stringify(this.url),
         'dataType': 'json',
@@ -40,18 +62,30 @@ function send_request(url) {
 function shorturl(){
     var longurl = geturl();
     genhash();
+   var longurl = encrypt(longurl)
     send_request(longurl);
 }
 
 var hashh = window.location.hash.substr(1)
 
 if (window.location.hash != "") {
-    $.getJSON(endpoint + "/" + hashh, function (data) {
+  makeep(hashh);
+    $.getJSON(endpoint, function (data) {
         data = data["result"];
+        var decrypted = CryptoJS.AES.decrypt(data, window.location.hash.substr(1));
 
-        if (data != null) {
-            window.location.href = data;
+        if (decrypted != null) {
+            var deccc = decrypted.toString(CryptoJS.enc.Utf8);
+          document.getElementById("downll").href=deccc;
+          send_request("COMPLETE");
+        //  document.write("<a href=" + deccc + " download>Click</a>");
+        //  downloadFile(deccc);
+        //  window.location.href = deccc;
+          //<a href="/images/myw3schoolsimage.jpg" download>
+          
         }
 
     });
 }
+
+    
