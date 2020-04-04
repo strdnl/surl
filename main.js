@@ -2,7 +2,7 @@ var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b3095
 var storename = [];
 var endstore = "";
 
-function bodymov(){
+ function bodymov(){
  // looping through your array : 
 for (let i=0;i<storename.length;i++) {
      // appending your elements to the body :
@@ -11,15 +11,15 @@ for (let i=0;i<storename.length;i++) {
  document.getElementById("output").innerHTML = endstore;
 }
                     
-function makeep(str){
+async function makeep(str){
 //var ep = digestMessage(str);
- const ep = digestMessage(str);
+ const ep = await digestMessage(str);
  endpoint = "https://www.jsonstore.io/" + ep;
   }
 
-function digestMessage(message) {
+async function digestMessage(message) {
   const msgUint8 = new TextEncoder().encode(message);                         
-  const hashBuffer = crypto.subtle.digest('SHA-256', msgUint8);          
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);          
   const hashArray = Array.from(new Uint8Array(hashBuffer));                   
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); 
   return hashHex;
