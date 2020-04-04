@@ -12,7 +12,7 @@ for (let i=0;i<storename.length;i++) {
 }
                     
 function makeep(str){
-var ep = digestMessage(str);
+//var ep = digestMessage(str);
  const ep = digestMessage(str);
  endpoint = "https://www.jsonstore.io/" + ep;
   }
