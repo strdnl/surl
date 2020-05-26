@@ -1,4 +1,4 @@
-var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b30954d1a6cb2255e0a19402bbf419";
+var endpoint = "https://jsonbox.io/box_c99dcc786bfaf0399069";
 
   
   function send_request(url) {
@@ -8,7 +8,7 @@ var endpoint = "https://www.jsonstore.io/3f372cbb892d082a509f9484d4ea8f7426b3095
      
         'url': endpoint,
         'type': 'POST',
-        'data': JSON.stringify(this.url),
+        'data': "hello",
         'dataType': 'json',
         'contentType': 'application/json; charset=utf-8'
 })
